@@ -4402,6 +4402,59 @@ input[type="radio"]:focus + label:before {
 	}
 }
 
+
+
+/* =====================================================
+   GRAMMERLABS FOOTER / SOCIAL ICON REFINEMENT
+   Removes red icon borders and gives footer a cleaner,
+   modern SaaS-style treatment.
+   ===================================================== */
+
+#footer .icons .icon,
+ul.icons .icon {
+	border: none !important;
+	box-shadow: none !important;
+	background: transparent !important;
+	color: rgba(255, 255, 255, 0.58) !important;
+	transition:
+		color 0.25s ease,
+		transform 0.25s ease,
+		text-shadow 0.25s ease;
+}
+
+/* Remove square outlines and old HTML5UP text-shadow icon treatment */
+#footer .icons .icon:before,
+#footer .icons .icon.alt:before,
+ul.icons .icon:before,
+ul.icons .icon.alt:before {
+	color: rgba(255, 255, 255, 0.58) !important;
+	text-shadow: none !important;
+	border: none !important;
+	box-shadow: none !important;
+	background: transparent !important;
+}
+
+/* Hover state */
+#footer .icons .icon:hover,
+ul.icons .icon:hover {
+	color: #ffffff !important;
+	transform: translateY(-2px);
+	text-shadow: 0 0 12px rgba(255, 42, 42, 0.18);
+}
+
+#footer .icons .icon:hover:before,
+#footer .icons .icon.alt:hover:before,
+ul.icons .icon:hover:before,
+ul.icons .icon.alt:hover:before {
+	color: #ffffff !important;
+	text-shadow: 0 0 12px rgba(255, 42, 42, 0.18) !important;
+}
+
+/* More breathing room between footer/social icons */
+ul.icons li {
+	padding: 0 0.85em;
+}
+
 /*
 	HTML5UP | ajlkn | CCA 3.0 license
 */
