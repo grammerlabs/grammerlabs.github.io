@@ -1,11 +1,7 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
 
-/*
-	Landed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -4111,41 +4107,148 @@ input, select, textarea {
 	}
 
 /* =====================================================
-   GRAMMERLABS CUSTOM RESPONSIVE FIXES
+   GRAMMERLABS MODERN OVERRIDES
+   Logo, red accents, desktop image framing, modern cards
    ===================================================== */
 
-/* Responsive logo */
-#header .logo,
+:root {
+	--gl-black: #000000;
+	--gl-charcoal: #111111;
+	--gl-card: #161616;
+	--gl-card-soft: rgba(255, 255, 255, 0.035);
+	--gl-border: rgba(255, 255, 255, 0.075);
+	--gl-border-soft: rgba(255, 255, 255, 0.05);
+	--gl-red: #ff2a2a;
+	--gl-red-soft: rgba(255, 42, 42, 0.16);
+	--gl-red-hover: #d90000;
+}
+
+/* Global brand color adjustments */
+html,
+body {
+	background: var(--gl-black);
+}
+
+a {
+	color: var(--gl-red);
+}
+
+a:hover {
+	color: #ffffff !important;
+}
+
+header.major:after {
+	background: var(--gl-red);
+}
+
+hr {
+	border-bottom-color: rgba(255, 42, 42, 0.22);
+}
+
+/* Header and logo */
+#header {
+	background: rgba(0, 0, 0, 0.94);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+body.landing #header {
+	background: rgba(0, 0, 0, 0.22);
+}
+
+#header .logo {
+	display: flex;
+	align-items: center;
+	height: inherit;
+	border-bottom: none;
+}
+
+#header .logo img {
+	display: block;
+	width: auto;
+	max-height: 54px;
+	object-fit: contain;
+	transition: max-height 0.25s ease;
+}
+
+#header nav ul li.active > a,
+#header nav ul li.active > span,
+.dropotron > li.active > a,
+.dropotron > li.active > span {
+	color: var(--gl-red);
+}
+
+#header nav ul li a:hover {
+	color: var(--gl-red) !important;
+}
+
+/* Mobile title bar logo */
+#titleBar {
+	background: #151515;
+}
+
 #titleBar .title {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	height: 44px;
+	line-height: 44px;
 }
 
-#header .logo img,
 #titleBar .title img {
 	display: block;
 	width: auto;
-	max-height: 48px;
+	max-height: 28px;
 	object-fit: contain;
-	transition: all 0.3s ease;
 }
 
-/* Desktop */
+#titleBar .toggle:before {
+	background: var(--gl-red);
+	color: #ffffff;
+}
+
+/* Buttons */
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
+.button.primary {
+	background-color: var(--gl-red);
+	color: #ffffff !important;
+	box-shadow: none;
+}
+
+input[type="submit"].primary:hover,
+input[type="reset"].primary:hover,
+input[type="button"].primary:hover,
+.button.primary:hover {
+	background-color: var(--gl-red-hover);
+	color: #ffffff !important;
+}
+
+/* Wrappers and sections */
+.wrapper.style1,
+.wrapper.style2,
+.wrapper.style3,
+#footer {
+	background: var(--gl-black);
+}
+
+.wrapper.style2 {
+	background: #111111;
+}
+
+/* Spotlight brand accents */
+.spotlight .content {
+	background: rgba(0, 0, 0, 0.92);
+}
+
+.spotlight.style1 .content,
+.spotlight.style2 .content,
+.spotlight.style3 .content {
+	border-color: var(--gl-red);
+}
+
+/* Desktop image framing fix */
 @media screen and (min-width: 981px) {
-
-	#header {
-		background: #000000;
-	}
-
-	#header .logo img {
-		max-height: 56px;
-	}
-
-	#header nav ul li a:hover {
-		color: #ff2a2a !important;
-	}
-
 	.spotlight {
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -4164,28 +4267,121 @@ input, select, textarea {
 	}
 }
 
-/* Tablet */
-@media screen and (max-width: 980px) {
+/* Modern services cards */
+.box.alt section,
+#services .box.alt section {
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.035),
+		rgba(255, 255, 255, 0.012)
+	);
+	border: 1px solid var(--gl-border);
+	border-radius: 18px;
+	padding: 3.25em 2em;
+	min-height: 24em;
+	transition:
+		transform 0.25s ease,
+		border-color 0.25s ease,
+		box-shadow 0.25s ease,
+		background 0.25s ease;
+}
 
+.box.alt section:hover,
+#services .box.alt section:hover {
+	transform: translateY(-4px);
+	border-color: rgba(255, 42, 42, 0.22);
+	box-shadow:
+		0 14px 42px rgba(0, 0, 0, 0.42),
+		0 0 36px rgba(255, 42, 42, 0.08);
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.045),
+		rgba(255, 255, 255, 0.018)
+	);
+}
+
+/* Modern icon treatment: charcoal circle + subtle red glow */
+.icon.alt.major,
+.icon.major.alt {
+	background: var(--gl-card);
+	border: 1px solid rgba(255, 255, 255, 0.07);
+	box-shadow:
+		inset 0 0 0 1px rgba(255, 255, 255, 0.025),
+		0 0 24px rgba(255, 42, 42, 0.12);
+	transition:
+		transform 0.25s ease,
+		border-color 0.25s ease,
+		box-shadow 0.25s ease,
+		background 0.25s ease;
+}
+
+.icon.alt.major:before,
+.icon.major.alt:before {
+	color: #ffffff !important;
+	text-shadow: none !important;
+}
+
+.box.alt section:hover .icon.alt.major,
+.box.alt section:hover .icon.major.alt,
+#services .box.alt section:hover .icon.alt.major,
+#services .box.alt section:hover .icon.major.alt {
+	transform: translateY(-2px);
+	border-color: rgba(255, 42, 42, 0.28);
+	box-shadow:
+		inset 0 0 0 1px rgba(255, 255, 255, 0.035),
+		0 0 34px rgba(255, 42, 42, 0.18);
+}
+
+/* Make icon spacing feel more premium */
+.icon.major {
+	margin-bottom: 2.25em;
+}
+
+/* Form focus and modal accents */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+	border-color: var(--gl-red);
+}
+
+input[type="checkbox"]:focus + label:before,
+input[type="radio"]:focus + label:before {
+	border-color: var(--gl-red);
+}
+
+/* Mobile refinements */
+@media screen and (max-width: 980px) {
 	#header .logo img {
 		max-height: 42px;
 	}
+
+	.spotlight .content {
+		background: var(--gl-black);
+	}
 }
 
-/* Mobile */
 @media screen and (max-width: 736px) {
-
-	#titleBar {
-		background: #111111;
-	}
-
 	#titleBar .title img {
-		max-height: 28px;
-		margin-top: 6px;
+		max-height: 26px;
 	}
 
-	#titleBar .toggle:before {
-		background: #ff2a2a;
+	.box.alt section,
+	#services .box.alt section {
+		min-height: auto;
+		padding: 2.5em 1.5em;
+		border-radius: 16px;
+	}
+
+	.icon.major {
+		height: 5.25em;
+		line-height: 4.95em;
+		width: 5.25em;
+	}
+
+	.icon.major:before {
+		font-size: 2em;
 	}
 
 	.spotlight .image.main img {
@@ -4193,48 +4389,19 @@ input, select, textarea {
 		height: auto;
 		object-fit: cover;
 	}
-
-	.wrapper.style2 {
-		background: #111111;
-	}
 }
 
-/* Small phones */
 @media screen and (max-width: 480px) {
-
 	#titleBar .title img {
 		max-height: 24px;
 	}
+
+	.box.alt section,
+	#services .box.alt section {
+		padding: 2.25em 1.25em;
+	}
 }
 
-/* Red accent overrides */
-a,
-#header nav ul li.active > a,
-.dropotron > li.active > a,
-.dropotron > li.active > span {
-	color: #ff2a2a;
-}
-
-header.major:after,
-.spotlight.style1 .content {
-	border-color: #ff2a2a;
-}
-
-.wrapper.style2 {
-	background: #111111;
-}
-
-input[type="submit"].primary,
-input[type="reset"].primary,
-input[type="button"].primary,
-.button.primary {
-	background-color: #ff2a2a;
-}
-
-input[type="submit"].primary:hover,
-input[type="reset"].primary:hover,
-input[type="button"].primary:hover,
-.button.primary:hover {
-	background-color: #d90000;
-}
-
+/*
+	HTML5UP | ajlkn | CCA 3.0 license
+*/
